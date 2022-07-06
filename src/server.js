@@ -21,6 +21,11 @@ mongoose
   .catch((error) => console.log(error.reason));
 
 const app = express();
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 app.use(bodyParser.json());
 app.use('/api/uploads', uploadRoute);
 app.use('/api/users', userRoute);
@@ -30,6 +35,7 @@ app.use('/api/categories', categoryRoute);
 app.use('/api/delivery', deliveryRoute);
 app.get('/api/config/fondy', paymentController.getCheckoutLink);
 app.use('/uploads', express.static(path.join(__dirname, '/../uploads')));
+
 
 app.listen(config.PORT, () => {
   console.log(`Server started at ${config.SERVER_URL}`);
