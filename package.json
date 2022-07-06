@@ -32,8 +32,8 @@
     "nodemon": "^2.0.2"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node server.js",
-    "build": "rm -rf dist && babel -d dist",
+    "start": "nodemon --exec babel-node src/server.js",
+    "build": "rm -rf dist && babel src -d dist",
     "heroku-postbuild-x": "npm run build"
   },
   "author": "",
