@@ -12,8 +12,8 @@ module.exports = {
   NOVA_POSHTA_API_LINK: process.env.NOVA_POSHTA_API_KEY || 'https://api.novaposhta.ua/v2.0/json/',
   accessKeyId: process.env.accessKeyId || 'accessKeyId',
   secretAccessKey: process.env.secretAccessKey || 'secretAccessKey',
-  CLIENT_URL: process.env.MONGODB_URL || 'http://localhost:3000',
-  SERVER_URL: process.env.MONGODB_URL || 'http://localhost:5000/api',
+  CLIENT_URL: process.env.CLIENT_URL || 'http://localhost:3000',
+  SERVER_URL: process.env.SERVER_URL || 'http://localhost:5000/api',
   ADMIN_EMAIL: process.env.ADMIN_EMAIL || 'admin@example.com',
   ADMIN_PASSWORD: process.env.ADMIN_PASSWORD || '1234'
 };
