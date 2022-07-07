@@ -1,5 +1,6 @@
 import express from 'express';
 import multer from 'multer';
+import * as os from "os";
 const cloudinary = require('cloudinary').v2;
 
 // Return "https" URLs by setting secure: true
