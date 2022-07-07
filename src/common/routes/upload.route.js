@@ -19,6 +19,7 @@ router.post('/', upload.single('image'), async (req, res) => {
 
   try {
     // Upload the image
+    console.log({ file: req.file })
     const result = await cloudinary.uploader.upload(req.file.path, options);
     console.log(result);
     return result.public_id;
