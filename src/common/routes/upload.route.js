@@ -1,21 +1,28 @@
 import express from 'express';
-import multer from 'multer';
+const cloudinary = require('cloudinary').v2;
 
-const storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, 'uploads/');
-  },
-  filename(req, file, cb) {
-    cb(null, `${Date.now()}.jpg`);
-  },
+// Return "https" URLs by setting secure: true
+cloudinary.config({
+  secure: true
 });
-
-const upload = multer({ storage });
 
 const router = express.Router();
 
-router.post('/', upload.single('image'), (req, res) => {
-  res.send(`/${req.file.path}`);
+router.post('/', async (req, res) => {
+  const options = {
+    use_filename: true,
+    unique_filename: false,
+    overwrite: true,
+  };
+
+  try {
+    // Upload the image
+    const result = await cloudinary.uploader.upload(req.file.path, options);
+    console.log(result);
+    return result.public_id;
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 export default router;

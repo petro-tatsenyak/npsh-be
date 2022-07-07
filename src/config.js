@@ -15,5 +15,6 @@ module.exports = {
   CLIENT_URL: process.env.CLIENT_URL || 'http://localhost:3000',
   SERVER_URL: process.env.SERVER_URL || 'http://localhost:5000/api',
   ADMIN_EMAIL: process.env.ADMIN_EMAIL || 'admin@example.com',
-  ADMIN_PASSWORD: process.env.ADMIN_PASSWORD || '1234'
+  ADMIN_PASSWORD: process.env.ADMIN_PASSWORD || '1234',
+  CLOUDINARY_URL: process.env.CLOUDINARY_URL || '',
 };
