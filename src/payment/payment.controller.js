@@ -1,5 +1,5 @@
 import CloudIpsp from 'cloudipsp-node-js-sdk';
-import { FONDY_MERCHANT_ID, FONDY_SECRET_KEY, SERVER_URL } from '../config';
+import { FONDY_MERCHANT_ID, FONDY_SECRET_KEY, SERVER_URL, CLIENT_URL } from '../config';
 import orderService from '../orders/order.service';
 
 const getCheckoutLink = async (req, res, next) => {
@@ -55,7 +55,7 @@ const updatePaymentStatus = async (req, res, next) => {
       return res.status(404).send({ message: 'Order Not Found' });
     }
     return res.writeHead(301, {
-      Location: `http://localhost:3000/order/${req.params.id}`,
+      Location: `${CLIENT_URL}/order/${req.params.id}`,
     }).end();
   } catch (error) {
     return next(error);
